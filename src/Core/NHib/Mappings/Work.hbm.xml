@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Core" namespace="MusicCompany.Core" schema="mc">
+	<class name="Work" table="Work" lazy="true" >
+		<id name="Id" type="Guid" >
+			<generator class="guid.comb" />
+		</id>
+		<discriminator column="Class" type="String"/>
+		<version name="Version" type="Timestamp" />
+		<property name="WorkType" type="MusicCompany.Core.NHib.CustomTypes.WorkTypeEnumString, MusicCompany.Core.NHib">
+			<column name="WorkType" length="50" not-null="true" sql-type="VARCHAR(50)"/>
+		</property>
+		<component name="Title" class="UniqueName">
+			<property name="Value" type="String">
+				<column name="Name" length="500" not-null="true" sql-type="VARCHAR(500)"/>
+			</property>
+			<property name="Id" type="String">
+				<column name="Identifier" length="500" not-null="true" sql-type="VARCHAR(500)"/>
+			</property>
+		</component>
+		<many-to-one name="Artist" class="Artist" fetch="join" lazy="proxy" foreign-key="FK_Work_Artist">
+			<column name="ArtistId" length="16" not-null="true" sql-type="UNIQUEIDENTIFIER" />
+		</many-to-one>
+		<many-to-one name="ParentWork" class="CollectionWork" lazy="proxy" foreign-key="FK_Work_Collection">
+			<column name="ParentWorkId" length="16" not-null="false" sql-type="UNIQUEIDENTIFIER" />
+		</many-to-one>
+		<many-to-one name="License" class="License" lazy="proxy" foreign-key="FK_Work_License">
+			<column name="LicenseId" length="16" not-null="false" sql-type="UNIQUEIDENTIFIER" />
+		</many-to-one>
+		<property name="DateLicensed" type="DateTime">
+			<column name="DateLicensed" length="8" not-null="true" sql-type="DATETIME"/>
+		</property>
+		<property name="ReleaseDate" type="DateTime">
+			<column name="ReleaseDate" length="8" not-null="true" sql-type="DATETIME"/>
+		</property>
+		<property name="Description" type="String">
+			<column name="Description" length="16" not-null="false" sql-type="VARCHAR(MAX)"/>
+		</property>
+		<property name="ViewOrder" type="Int32">
+			<column name="ViewOrder" length="4" not-null="true" sql-type="INT"/>
+		</property>
+		<bag name="Events" cascade="all-delete-orphan" inverse="true" >
+			<key column="WorkId" />
+			<one-to-many class="WorkEvent" />
+		</bag>
+		<bag name="Tags" table="WorkTag" cascade="save-update" >
+			<key column="WorkId" />
+			<many-to-many class="Tag" column="TagId"/>
+		</bag>
+		<bag name="LicenseHistory" cascade="all-delete-orphan" inverse="true" >
+			<key column="WorkId" />
+			<one-to-many class="HistoricWorkLicense" />
+		</bag>
+		<subclass name="AudioWork" discriminator-value="AudioWork">
+			<many-to-one name="File" class="AudioFileInfo" lazy="proxy" cascade="all" foreign-key="FK_Work_BinaryFileInfoId">
+				<column name="BinaryFileInfoId" length="16" not-null="false" sql-type="UNIQUEIDENTIFIER" />
+			</many-to-one>
+		</subclass>
+		<subclass name="CollectionWork" discriminator-value="CollectionWork">
+			<many-to-one name="File" class="ImageFileInfo" lazy="proxy" cascade="all" >
+				<column name="BinaryFileInfoId" length="16" not-null="false" sql-type="UNIQUEIDENTIFIER" />
+			</many-to-one>
+			<bag name="SubWorks" cascade="all-delete-orphan" inverse="true" >
+				<!--order-by="ViewOrder"-->
+				<key column="ParentWorkId" />
+				<one-to-many class="Work" />
+			</bag>
+		</subclass>
+		<subclass name="ImageWork" discriminator-value="ImageWork">
+			<many-to-one name="File" class="ImageFileInfo" lazy="proxy" cascade="all">
+				<column name="BinaryFileInfoId" length="16" not-null="false" sql-type="UNIQUEIDENTIFIER" />
+			</many-to-one>
+		</subclass>
+	</class>
+</hibernate-mapping>

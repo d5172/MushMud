@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Common" namespace="MusicCompany.Common.ViewModel" schema="mc">
+	<class name="ArtistSummaryView" table="ArtistSummaryView" lazy="false" mutable="false" >
+		<id name="Identifier" type="String">
+			<generator class="assigned"/>
+		</id>
+		<property name="Name" type="String" />
+		<property name="ProfileImageId" type="Guid" />
+		<property name="CollectionCount" type="Int32" />
+		<property name="SingleCount" type="Int32" />
+	</class>
+</hibernate-mapping>

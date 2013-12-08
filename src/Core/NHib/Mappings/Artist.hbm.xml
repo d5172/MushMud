@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Core" namespace="MusicCompany.Core" schema="mc">
+	<class name="Artist" table="Artist" lazy="true" >
+		<id name="Id" type="Guid" >
+			<generator class="guid.comb" />
+		</id>
+		<version name="Version" type="Timestamp" />
+		<component name="Name" class="UniqueName">
+			<property name="Value" type="String" unique-key="UC_Artist_Name">
+				<column name="Name" length="500" not-null="true" sql-type="VARCHAR(500)"/>
+			</property>
+			<property name="Id" type="String" unique-key="UC_Artist_Identifier">
+				<column name="Identifier" length="500" not-null="true" sql-type="VARCHAR(500)"/>
+			</property>
+		</component>
+		<property name="Bio" type="String">
+			<column name="Bio" length="8000" not-null="true" sql-type="VARCHAR(MAX)"/>
+		</property>
+		<many-to-one name="ProfilePicture" class="ImageFileInfo" lazy="proxy" cascade="all" foreign-key="FK_Artist_BinaryFileInfoId">
+			<column name="BinaryFileInfoId" length="16" not-null="false" sql-type="UNIQUEIDENTIFIER" />
+		</many-to-one>
+		<bag name="ArtistPersons" cascade="all-delete-orphan" inverse="true">
+			<key column="ArtistId" />
+			<one-to-many class="ArtistPerson" />
+		</bag>
+		<bag name="SingleWorks" cascade="all-delete-orphan" inverse="true" where="ParentWorkId IS NULL AND Class != 'CollectionWork'">
+			<key column="ArtistId" />
+			<one-to-many class="Work" />
+		</bag>
+		<bag name="CollectionWorks" cascade="all-delete-orphan" inverse="true" where="Class = 'CollectionWork'">
+			<key column="ArtistId" />
+			<one-to-many class="CollectionWork" />
+		</bag>
+	</class>
+</hibernate-mapping>

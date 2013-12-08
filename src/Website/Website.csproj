@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <UsingTask AssemblyFile="$(SolutionDir)..\lib\BSEng\BSEng.MSBuildTasks.dll" TaskName="BSEng.MSBuildTasks.AssembleClientScriptFromManifest" />
+  <UsingTask AssemblyFile="$(SolutionDir)..\lib\BSEng\BSEng.MSBuildTasks.dll" TaskName="BSEng.MSBuildTasks.CallNAnt" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1FAC93E8-8C25-4DDC-9AA8-2BEA0337F713}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MusicCompany.Website</RootNamespace>
+    <AssemblyName>MusicCompany.Website</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Agatha.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6f21cf452a4ffa13, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Agatha\Agatha.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah, Version=1.1.11517.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ELMAH\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="HibernatingRhinos.NHibernate.Profiler.Appender, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0774796e73ebf640, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHProf\HibernatingRhinos.NHibernate.Profiler.Appender.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcMembership, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\MvcMembership\MvcMembership.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Spring, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\NHibernate.ByteCode.Spring.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.1.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\MvcMembership\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AjaxEnabledAuthorizeAttribute.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArtistController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\ImageWorkController.cs" />
+    <Compile Include="Controllers\AudioWorkController.cs" />
+    <Compile Include="Controllers\ChartsController.cs" />
+    <Compile Include="Controllers\CollectionWorkController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\YourMusicController.cs" />
+    <Compile Include="Controllers\ExtendedController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\MusicController.cs" />
+    <Compile Include="Controllers\StreamController.cs" />
+    <Compile Include="Controllers\UserAdministrationController.cs" />
+    <Compile Include="Controllers\WorksController.cs" />
+    <Compile Include="HtmlHelperExtensions.cs" />
+    <Compile Include="Models\Account\IndexViewModel.cs" />
+    <Compile Include="Models\Account\LogOnFormViewModel.cs" />
+    <Compile Include="Models\AudioWork\AddToCollectionFormViewModel.cs" />
+    <Compile Include="Models\AudioWork\EditSingleViewModel.cs" />
+    <Compile Include="Models\AudioWork\EditTrackViewModel.cs" />
+    <Compile Include="Models\Charts\IndexViewModel.cs" />
+    <Compile Include="Models\CollectionWork\CollectionWorkFormViewModel.cs" />
+    <Compile Include="Models\CollectionWork\CreateViewModel.cs" />
+    <Compile Include="Models\CollectionWork\DeleteViewModel.cs" />
+    <Compile Include="Models\CollectionWork\EditViewModel.cs" />
+    <Compile Include="Models\Comments\CommentFormViewModel.cs" />
+    <Compile Include="Models\Comments\IndexViewModel.cs" />
+    <Compile Include="Models\ImageWork\CollectionImageViewModel.cs" />
+    <Compile Include="Models\ImageWork\ArtistImageViewModel.cs" />
+    <Compile Include="Models\Music\CollectionViewModel.cs" />
+    <Compile Include="Models\Music\IndexViewModel.cs" />
+    <Compile Include="Models\Music\ListTracksViewModel.cs" />
+    <Compile Include="Models\Music\SearchViewModel.cs" />
+    <Compile Include="Models\Music\SingleViewModel.cs" />
+    <Compile Include="Models\Music\TrackViewModel.cs" />
+    <Compile Include="Models\Person\ProfileViewModel.cs" />
+    <Compile Include="Models\Works\IndexViewModel.cs" />
+    <Compile Include="Models\Works\LicensesViewModel.cs" />
+    <Compile Include="Models\YourMusic\IndexViewModel.cs" />
+    <Compile Include="Models\YourMusic\WorkActivityViewModel.cs" />
+    <Compile Include="PagedListExtensions.cs" />
+    <Compile Include="ContainerManagedControllerFactory.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ExpiresHeadersModule.cs" />
+    <Compile Include="Models\Artist\BioFormViewModel.cs" />
+    <Compile Include="Models\Artist\CreateViewModel.cs" />
+    <Compile Include="Models\Artist\DeleteViewModel.cs" />
+    <Compile Include="Models\Artist\IndexViewModel.cs" />
+    <Compile Include="Models\Artist\ProfileViewModel.cs" />
+    <Compile Include="Models\Music\DownloadFormViewModel.cs" />
+    <Compile Include="Models\Home\IndexViewModel.cs" />
+    <Compile Include="Models\ISmtpClient.cs" />
+    <Compile Include="Models\SmtpClientProxy.cs" />
+    <Compile Include="Models\UserAdministration\DetailsViewModel.cs" />
+    <Compile Include="Models\UserAdministration\IndexViewModel.cs" />
+    <Compile Include="Models\UserAdministration\RoleViewModel.cs" />
+    <Compile Include="Models\UserMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoveUselessHeadersModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\cancelbutton.gif" />
+    <Content Include="Content\progress.gif" />
+    <Content Include="Content\scanner.gif" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Views\Shared\Common.js" />
+    <Content Include="Views\Artist\Create.aspx" />
+    <Content Include="Views\Artist\Delete.aspx" />
+    <Content Include="Views\Artist\EditProfile.aspx" />
+    <Content Include="Views\Artist\Profile.aspx" />
+    <Content Include="Views\Artist\Index.aspx" />
+    <Content Include="Views\Works\Index.aspx" />
+    <None Include="Web.config" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery-1.3.2.min.js" />
+    <Content Include="Scripts\jquery-1.3.2.min-vsdoc.js" />
+    <Content Include="Views\Account\ChangePassword.aspx" />
+    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Views\Account\LogOn.aspx" />
+    <Content Include="Views\Account\Register.aspx" />
+    <Content Include="Views\Home\TestPage.aspx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\LogOnUserControl.ascx" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\MusicCompany.Common.csproj">
+      <Project>{95950F5E-D563-47F5-9F62-F0B1BE4C0512}</Project>
+      <Name>MusicCompany.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\NHib\MusicCompany.Common.NHib.csproj">
+      <Project>{60C8B579-E8C9-43ED-8E24-193C68AAF4DD}</Project>
+      <Name>MusicCompany.Common.NHib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\MusicCompany.Core.csproj">
+      <Project>{2E4344AE-62C5-4A09-9828-A9397D264147}</Project>
+      <Name>MusicCompany.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\NHib\MusicCompany.Core.NHib.csproj">
+      <Project>{5BE23720-8527-45A3-A2A3-C3857F62BD85}</Project>
+      <Name>MusicCompany.Core.NHib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Services\AudioConversion\MusicCompany.Core.Services.AudioConversion.csproj">
+      <Project>{EA91E478-91CC-4CF1-A79E-AEB0D34F96D4}</Project>
+      <Name>MusicCompany.Core.Services.AudioConversion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Services\AudioConversion\Tests\MusicCompany.Core.Services.AudioConversion.Tests.csproj">
+      <Project>{814F146C-0CC8-454F-AADA-2048721F48E6}</Project>
+      <Name>MusicCompany.Core.Services.AudioConversion.Tests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Services\Torrent\MusicCompany.Core.Services.Torrent.csproj">
+      <Project>{B16C546D-A616-4A19-8BB1-225B8837070B}</Project>
+      <Name>MusicCompany.Core.Services.Torrent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Services\Zipping\MusicCompany.Core.Services.Zipping.csproj">
+      <Project>{66D95604-1B46-4C63-8762-5916BE34E692}</Project>
+      <Name>MusicCompany.Core.Services.Zipping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\MusicCompany.Infrastructure.csproj">
+      <Project>{C695F0BA-7E93-4F53-B2EB-1AEF79DEE692}</Project>
+      <Name>MusicCompany.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceLayer\MusicCompany.ServiceLayer.csproj">
+      <Project>{62E4674F-0117-4BB2-9A9F-A18173B9F32C}</Project>
+      <Name>MusicCompany.ServiceLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceLayer\Support\MusicCompany.ServiceLayer.Support.csproj">
+      <Project>{E9186AE5-E27A-4D83-B75F-C5A7A0355B97}</Project>
+      <Name>MusicCompany.ServiceLayer.Support</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Spring.xml" />
+    <Content Include="Content\browse_file_hs.png" />
+    <Content Include="Content\cancel.png" />
+    <Content Include="Content\captcha\captcha.css" />
+    <Content Include="Content\captcha\imgs\bg-content-div.png" />
+    <Content Include="Content\captcha\imgs\bg-items.png" />
+    <Content Include="Content\captcha\imgs\blank.gif" />
+    <Content Include="Content\captcha\imgs\border-left.png" />
+    <Content Include="Content\captcha\imgs\border-right.png" />
+    <Content Include="Content\captcha\imgs\circle.png" />
+    <Content Include="Content\captcha\imgs\item-clock.png" />
+    <Content Include="Content\captcha\imgs\item-heart.png" />
+    <Content Include="Content\captcha\imgs\item-none.png" />
+    <Content Include="Content\captcha\imgs\item-note.png" />
+    <Content Include="Content\captcha\imgs\item-pencil.png" />
+    <Content Include="Content\captcha\imgs\item-scissors.png" />
+    <Content Include="Content\captcha\imgs\wdb.png" />
+    <Content Include="Content\captcha\jquery.captcha.js" />
+    <Content Include="Content\DefaultArtist.png" />
+    <Content Include="Content\DefaultCollection.png" />
+    <Content Include="Content\DefaultPerson.png" />
+    <Content Include="Content\fieldbg.gif" />
+    <Content Include="Content\hot-sneaks\images\ui-bg_diagonals-small_40_db4865_40x40.png" />
+    <Content Include="Content\hot-sneaks\images\ui-bg_diagonals-small_50_93c3cd_40x40.png" />
+    <Content Include="Content\hot-sneaks\images\ui-bg_diagonals-small_50_ff3853_40x40.png" />
+    <Content Include="Content\hot-sneaks\images\ui-bg_diagonals-small_75_ccd232_40x40.png" />
+    <Content Include="Content\hot-sneaks\images\ui-bg_dots-medium_80_ffff38_4x4.png" />
+    <Content Include="Content\hot-sneaks\images\ui-bg_dots-small_35_35414f_2x2.png" />
+    <Content Include="Content\hot-sneaks\images\ui-bg_flat_75_ba9217_40x100.png" />
+    <Content Include="Content\hot-sneaks\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\hot-sneaks\images\ui-bg_white-lines_85_f7f7ba_40x100.png" />
+    <Content Include="Content\hot-sneaks\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\hot-sneaks\images\ui-icons_88a206_256x240.png" />
+    <Content Include="Content\hot-sneaks\images\ui-icons_c02669_256x240.png" />
+    <Content Include="Content\hot-sneaks\images\ui-icons_e1e463_256x240.png" />
+    <Content Include="Content\hot-sneaks\images\ui-icons_ffeb33_256x240.png" />
+    <Content Include="Content\hot-sneaks\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\hot-sneaks\jquery-ui.css" />
+    <Content Include="Content\Jplayer.swf" />
+    <Content Include="Content\jqModal.css" />
+    <Content Include="Content\jquery.ui.css" />
+    <Content Include="Content\mushmud-logo.gif" />
+    <Content Include="Content\pepper-grinder\images\ui-bg_diagonal-maze_20_6e4f1c_10x10.png" />
+    <Content Include="Content\pepper-grinder\images\ui-bg_diagonal-maze_40_000000_10x10.png" />
+    <Content Include="Content\pepper-grinder\images\ui-bg_fine-grain_10_eceadf_60x60.png" />
+    <Content Include="Content\pepper-grinder\images\ui-bg_fine-grain_10_f8f7f6_60x60.png" />
+    <Content Include="Content\pepper-grinder\images\ui-bg_fine-grain_15_eceadf_60x60.png" />
+    <Content Include="Content\pepper-grinder\images\ui-bg_fine-grain_15_f7f3de_60x60.png" />
+    <Content Include="Content\pepper-grinder\images\ui-bg_fine-grain_15_ffffff_60x60.png" />
+    <Content Include="Content\pepper-grinder\images\ui-bg_fine-grain_65_654b24_60x60.png" />
+    <Content Include="Content\pepper-grinder\images\ui-bg_fine-grain_68_b83400_60x60.png" />
+    <Content Include="Content\pepper-grinder\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\pepper-grinder\images\ui-icons_3572ac_256x240.png" />
+    <Content Include="Content\pepper-grinder\images\ui-icons_8c291d_256x240.png" />
+    <Content Include="Content\pepper-grinder\images\ui-icons_b83400_256x240.png" />
+    <Content Include="Content\pepper-grinder\images\ui-icons_fbdb93_256x240.png" />
+    <Content Include="Content\pepper-grinder\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\pepper-grinder\jquery-ui.css" />
+    <Content Include="Content\play.png" />
+    <Content Include="Content\play3040.png" />
+    <Content Include="Content\Player.swf" />
+    <Content Include="Content\pleasewait.gif" />
+    <Content Include="Content\SelectAudioFiles_hs.png" />
+    <Content Include="Content\swfupload.css" />
+    <Content Include="Content\swfupload.swf" />
+    <Content Include="Content\tool.png" />
+    <Content Include="Content\UserAdministration.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Gateway.aspx" />
+    <Content Include="js\Jplayer.swf" />
+    <Content Include="Scripts\Account.ChangePassword.js" />
+    <Content Include="Scripts\Account.ChangePasswordSuccess.js" />
+    <Content Include="Scripts\Account.Logon.js" />
+    <Content Include="Scripts\Account.Register.js" />
+    <Content Include="Scripts\Artist.Create.js" />
+    <Content Include="Scripts\Artist.Delete.js" />
+    <Content Include="Scripts\Artist.EditProfile.js" />
+    <Content Include="Scripts\Artist.Index.js" />
+    <Content Include="Scripts\Artist.Profile.js" />
+    <Content Include="Scripts\Charts.Index.js" />
+    <Content Include="Scripts\CollectionWork.Edit.js" />
+    <Content Include="Scripts\Home.Index.js" />
+    <Content Include="Scripts\Home.TestPage.js" />
+    <Content Include="Scripts\Music.Collection.js" />
+    <Content Include="Scripts\Music.Index.js" />
+    <Content Include="Scripts\Music.Search.js" />
+    <Content Include="Scripts\Music.Single.js" />
+    <Content Include="Scripts\swfupload.queue.js" />
+    <Content Include="Scripts\swfupload.queue.min.js" />
+    <Content Include="Scripts\YourMusic.Index.js" />
+    <Content Include="Views\About\Index.aspx" />
+    <Content Include="Views\About\TermsOfService.aspx" />
+    <Content Include="Views\Account\Index.aspx" />
+    <Content Include="Views\Artist\Bio.ascx" />
+    <Content Include="Views\Artist\BioForm.ascx" />
+    <Content Include="Views\Artist\BioForm.js" />
+    <Content Include="Views\Artist\Create.js" />
+    <Content Include="Views\Artist\EditProfile.js" />
+    <Content Include="Views\Artist\Profile.js" />
+    <Content Include="Views\AudioWork\AddToCollectionForm.ascx" />
+    <Content Include="Views\AudioWork\AddToCollectionForm.js" />
+    <Content Include="Views\AudioWork\AudioWorkForm.ascx" />
+    <Content Include="Views\AudioWork\AudioWorkForm.js" />
+    <Content Include="Views\AudioWork\SingleForm.ascx" />
+    <Content Include="Views\AudioWork\TrackForm.ascx" />
+    <Content Include="Views\Charts\Index.aspx" />
+    <Content Include="Views\Charts\Index.js" />
+    <Content Include="Views\CollectionWork\CollectionWorkForm.js" />
+    <Content Include="Scripts\jquery.jplayer.js" />
+    <Content Include="Scripts\jquery.jplayer.min.js" />
+    <Content Include="Scripts\jquery.ui.js" />
+    <Content Include="Scripts\complete.js" />
+    <Content Include="Content\jquery.autocomplete.css" />
+    <Content Include="Scripts\jquery.autocomplete.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\swfobject.js" />
+    <Content Include="Scripts\swfupload.fileprogress.js" />
+    <Content Include="Scripts\swfupload.js" />
+    <Content Include="Scripts\swfupload.min.js" />
+    <Content Include="Views\CollectionWork\Create.aspx" />
+    <Content Include="Views\CollectionWork\Delete.aspx" />
+    <Content Include="Views\CollectionWork\Edit.aspx" />
+    <Content Include="Views\CollectionWork\Edit.js" />
+    <Content Include="Views\Home\Index.js" />
+    <Content Include="Views\Music\Collection.aspx" />
+    <Content Include="Views\Music\Collection.js" />
+    <Content Include="Views\Music\CollectionDetail.ascx" />
+    <Content Include="Views\Music\SingleDetail.ascx" />
+    <Content Include="Views\Music\DownloadForm.ascx" />
+    <Content Include="Views\Music\DownloadForm.js" />
+    <Content Include="Views\Music\DownloadSingle.aspx" />
+    <Content Include="Views\Music\DownloadTrack.aspx" />
+    <Content Include="Views\Music\Index.aspx" />
+    <Content Include="Views\Music\Index.js" />
+    <Content Include="Views\Music\Search.aspx" />
+    <Content Include="Views\Music\Search.js" />
+    <Content Include="Views\Music\Single.aspx" />
+    <Content Include="Views\Music\Single.js" />
+    <Content Include="Views\Music\Track.aspx" />
+    <Content Include="Views\Music\TrackDetail.ascx" />
+    <Content Include="Views\Music\TrackList.ascx" />
+    <Content Include="Views\Music\WorkDetail.ascx" />
+    <Content Include="Views\Shared\AudioWorkList.js" />
+    <Content Include="Views\Shared\AudioWorkSingleList.js" />
+    <Content Include="Views\Shared\CollectionPlayer.ascx" />
+    <Content Include="Views\Shared\LicenseLink.ascx" />
+    <Content Include="Views\Shared\ItemPagination.js" />
+    <Content Include="Views\Shared\LogOnForm.ascx" />
+    <Content Include="Views\Shared\LogOnForm.js" />
+    <Content Include="Views\Shared\OptionsLink.js" />
+    <Content Include="Views\Shared\PageLinks.js" />
+    <Content Include="Views\Shared\PlayerManager.js" />
+    <Content Include="Views\Shared\SinglePlayer.ascx" />
+    <Content Include="Views\Shared\UploadManager.js" />
+    <Content Include="Views\Shared\UploadManager.ascx" />
+    <Content Include="Views\Shared\WorkList.js" />
+    <Content Include="Views\Shared\WorkItemPagination.ascx" />
+    <Content Include="Views\UserAdministration\Details.aspx" />
+    <Content Include="Views\UserAdministration\Index.aspx" />
+    <Content Include="Views\UserAdministration\Role.aspx" />
+    <Content Include="Views\Works\CollectionWorkList.js" />
+    <Content Include="Views\Account\Register.js" />
+    <Content Include="Views\Artist\ArtistForm.ascx" />
+    <Content Include="Views\Artist\ArtistForm.js" />
+    <Content Include="Views\Artist\ProfileDetail.ascx" />
+    <Content Include="Views\Shared\LicenseLine.ascx" />
+    <Content Include="Views\Shared\LicenseList.ascx" />
+    <Content Include="Views\Shared\UserMessagePartial.ascx" />
+    <Content Include="Views\Shared\WorkList.ascx" />
+    <Content Include="Views\Shared\SearchPartial.ascx" />
+    <Content Include="Views\Shared\WorkListAudioItem.ascx" />
+    <Content Include="Views\Shared\WorkListCollectionItem.ascx" />
+    <Content Include="Views\CollectionWork\CollectionWorkForm.ascx" />
+    <Content Include="Views\Shared\AudioWorkList.ascx" />
+    <Content Include="Views\Works\CollectionWorkList.ascx" />
+    <Content Include="Views\Works\CollectionWork.ascx" />
+    <Content Include="Views\Shared\AudioWorkSingle.ascx" />
+    <Content Include="Views\Shared\AudioWorkSingleList.ascx" />
+    <Content Include="Views\Works\Index.js" />
+    <Content Include="Views\Works\Licenses.aspx" />
+    <Content Include="Views\YourMusic\Index.aspx" />
+    <Content Include="Views\YourMusic\Index.js" />
+    <Content Include="Views\YourMusic\WorkActivity.aspx" />
+    <Content Include="Views\YourMusic\WorkActivityList.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\browse_file_hs.xcf" />
+    <None Include="Content\DefaultImages.psd" />
+    <None Include="Content\play.psd" />
+    <None Include="Content\play3040.psd" />
+    <None Include="Content\SelectAudioFiles_hs.xcf" />
+    <Content Include="AudioFileCache\placeholder.txt" />
+    <Content Include="Content\indicator.gif" />
+    <Content Include="ImageFileCache\placeholder.txt" />
+    <Content Include="Production.config" />
+    <Content Include="robots.txt" />
+    <Content Include="TorrentFileCache\placeholder.txt" />
+    <Content Include="Views\Comments\CommentForm.ascx" />
+    <Content Include="Views\Comments\CommentList.ascx" />
+    <Content Include="Views\Comments\CommentList.js" />
+    <Content Include="Views\Comments\CommentForm.js" />
+    <Content Include="Views\Comments\Index.aspx" />
+    <Content Include="Views\ImageWork\Collection.aspx" />
+    <Content Include="Views\ImageWork\CollectionImageList.ascx" />
+    <Content Include="Views\ImageWork\ArtistImageList.ascx" />
+    <Content Include="Views\ImageWork\Artist.aspx" />
+    <Content Include="Acceptance.config" />
+    <Content Include="Views\Music\DownloadCollection.aspx" />
+    <Content Include="Views\Person\Profile.aspx" />
+    <Content Include="Views\Person\Profile.js" />
+    <None Include="Release.bat" />
+    <None Include="Release.build" />
+    <None Include="Scripts\minify.bat" />
+    <None Include="Views\Account\Register.clientscriptmanifest" />
+    <None Include="Views\Account\Logon.clientscriptmanifest" />
+    <None Include="Views\Account\ChangePasswordSuccess.clientscriptmanifest" />
+    <None Include="Views\Account\ChangePassword.clientscriptmanifest" />
+    <None Include="Views\Artist\Profile.clientscriptmanifest" />
+    <None Include="Views\Artist\Index.clientscriptmanifest" />
+    <None Include="Views\Artist\EditProfile.clientscriptmanifest" />
+    <None Include="Views\Artist\Delete.clientscriptmanifest" />
+    <None Include="Views\Artist\Create.clientscriptmanifest" />
+    <None Include="Views\Charts\Index.clientscriptmanifest" />
+    <None Include="Views\CollectionWork\Edit.clientscriptmanifest" />
+    <None Include="Views\Home\TestPage.clientscriptmanifest" />
+    <None Include="Views\Home\Index.clientscriptmanifest" />
+    <None Include="Views\Music\Collection.clientscriptmanifest" />
+    <None Include="Views\Music\Index.clientscriptmanifest" />
+    <None Include="Views\Music\Search.clientscriptmanifest" />
+    <None Include="Views\Music\Single.clientscriptmanifest" />
+    <None Include="Views\Person\Profile.clientscriptmanifest" />
+    <None Include="Views\Works\Index.clientscriptmanifest" />
+    <None Include="Views\YourMusic\Index.clientscriptmanifest" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
+  </Target>
+  <Target Name="AfterBuild" Condition="'$(ConfigurationName)'=='Release'">
+    <AssembleClientScriptFromManifest OutputDirectory="$(ProjectDir)Scripts" />
+    <CallNAnt />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>55555</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>REM copy lame_enc.dll to target
+XCOPY $(SolutionDir)Core\Services\AudioConversion\Lame\lame_enc.dll  $(TargetDir)  /Y</PostBuildEvent>
+  </PropertyGroup>
+</Project>

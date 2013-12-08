@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Common" namespace="MusicCompany.Common.ViewModel" schema="mc">
+	<class name="TagView" table="TagView" lazy="false" mutable="false" >
+		<id name="Lemma" type="String">
+			<generator class="assigned"/>
+		</id>
+	</class>
+</hibernate-mapping>

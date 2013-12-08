@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="MusicCompany.Core" assembly="MusicCompany.Core">
+	<class name="Work" table="Work" lazy="true" >
+		<id name="Id" type="Int32" >
+			<column name="Id" length="4" not-null="true" sql-type="INT"/>
+			<generator class="identity" />
+		</id>
+		<discriminator column="WorkType" type="String"/>
+		<version name="Version" type="Timestamp" />
+		<property name="Title" type="String">
+			<column name="Title" length="500" not-null="true" sql-type="VARCHAR(500)"/>
+		</property>
+		<property name="Description" type="String">
+			<column name="Description" length="500" not-null="true" sql-type="VARCHAR(500)"/>
+		</property>
+		<many-to-one name="Artist" class="Artist" lazy="proxy" foreign-key="FK_Work_Artist">
+			<column name="ArtistId" length="4" not-null="true" sql-type="INT" />
+		</many-to-one>
+		<many-to-one name="WorkSet" class="WorkSet" lazy="proxy" foreign-key="FK_Work_WorkSet">
+			<column name="WorkSetId" length="4" not-null="false" sql-type="INT" />
+		</many-to-one>
+		<property name="ViewOrder" type="Int32">
+			<column name="ViewOrder" length="4" not-null="true" sql-type="INT"/>
+		</property>
+		
+		<subclass name="AudioWork" discriminator-value="Audio">
+			<property name="Minutes" type="Int32">
+				<column name="Minutes" length="4" not-null="true" sql-type="INT"/>
+			</property>
+			<many-to-one name="HighQualityFile" class="BinaryFileInfo" lazy="proxy" foreign-key="FK_Work_PrimaryBinaryFileInfoId">
+				<column name="PrimaryBinaryFileInfoId" length="4" not-null="false" sql-type="INT" />
+			</many-to-one>
+			<many-to-one name="StreamQualityFile" class="BinaryFileInfo" lazy="proxy" foreign-key="FK_Work_SecondaryBinaryFileInfoId">
+				<column name="SecondaryBinaryFileInfoId" length="4" not-null="false" sql-type="INT" />
+			</many-to-one>
+		</subclass>
+		
+		<subclass name="VideoWork" discriminator-value="Video">
+			<property name="Minutes" type="Int32">
+				<column name="Minutes" length="4" not-null="true" sql-type="INT"/>
+			</property>
+			<many-to-one name="HighQualityFile" class="BinaryFileInfo" lazy="proxy">
+				<column name="PrimaryBinaryFileInfoId" length="4" not-null="false" sql-type="INT" />
+			</many-to-one>
+			<many-to-one name="StreamQualityFile" class="BinaryFileInfo" lazy="proxy" >
+				<column name="SecondaryBinaryFileInfoId" length="4" not-null="false" sql-type="INT" />
+			</many-to-one>
+		</subclass>
+		
+		<subclass name="GraphicWork" discriminator-value="Graphic">
+			<many-to-one name="MainImage" class="BinaryFileInfo" lazy="proxy">
+				<column name="PrimaryBinaryFileInfoId" length="4" not-null="false" sql-type="INT" />
+			</many-to-one>
+			<many-to-one name="PreviewImage" class="BinaryFileInfo" lazy="proxy">
+				<column name="SecondaryBinaryFileInfoId" length="4" not-null="false" sql-type="INT" />
+			</many-to-one>
+		</subclass>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<controllers:Main xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:controllers="controllers.*" paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0" backgroundAlpha="0" verticalScrollPolicy="off">
+<mx:VBox id="boxContainer" width="100%" paddingBottom="0" paddingLeft="0" paddingRight="0" paddingTop="0" horizontalAlign="left"  backgroundAlpha="0" verticalScrollPolicy="off">
+	<mx:HBox height="40" width="100%" paddingBottom="0" paddingLeft="3" paddingRight="0" paddingTop="0"  verticalScrollPolicy="off" backgroundAlpha="0">
+		<mx:Button id="btnPlay" width="35" height="20" toolTip="Play" label=">"></mx:Button>
+		<mx:VBox id="boxPlaying" showEffect="WipeRight" width="300" verticalScrollPolicy="off" backgroundAlpha="0">
+			<mx:HBox width="100%" verticalScrollPolicy="off" backgroundAlpha="0">
+				<mx:Label id="lblTitle" text="Song Title"></mx:Label>
+				<mx:Label id="lblLoading" text="Loading..."></mx:Label>
+				<mx:Spacer width="100%"></mx:Spacer>
+				<mx:Label id="lblTime" text="0:00/0:00"></mx:Label>
+				<mx:Button id="btnClose" width="15" height="15" label="x" toolTip="Close" paddingTop="0" paddingLeft="0" paddingRight="0" paddingBottom="0"></mx:Button>
+			</mx:HBox>
+			<mx:ProgressBar id="progressPlay" width="100%" label="" mode="manual" />
+		</mx:VBox>
+	</mx:HBox>
+</mx:VBox>
+</controllers:Main>

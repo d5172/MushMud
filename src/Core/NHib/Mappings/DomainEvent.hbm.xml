@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Core" namespace="MusicCompany.Core" schema="mc">
+	<class name="DomainEvent" table="DomainEvent" lazy="true" >
+		<id name="Id" type="Guid" >
+			<generator class="guid.comb" />
+		</id>
+		<discriminator column="Class" type="String"/>
+		<property name="DomainEventType" type="MusicCompany.Core.NHib.CustomTypes.DomainEventTypeEnumString, MusicCompany.Core.NHib">
+			<column name="DomainEventType" length="50" not-null="true" sql-type="VARCHAR(50)"/>
+		</property>
+		<many-to-one name="Person" class="Person" lazy="proxy" foreign-key="FK_DomainEventPerson">
+			<column name="PersonId" length="16" not-null="false" sql-type="UNIQUEIDENTIFIER" />
+		</many-to-one>
+		<property name="EventDate" type="DateTime">
+			<column name="EventDate" length="8" not-null="true" sql-type="DATETIME"/>
+		</property>
+		<subclass name="WorkEvent" discriminator-value="Work">
+			<many-to-one name="Work" class="Work" lazy="proxy" foreign-key="FK_DomainEvent_Work">
+				<column name="WorkId" length="16" not-null="true" sql-type="UNIQUEIDENTIFIER" />
+			</many-to-one>
+			<subclass name="CommentEvent" discriminator-value="Comment">
+			</subclass>
+			<subclass name="DownloadEvent" discriminator-value="Download">
+			</subclass>
+			<subclass name="PlayEvent" discriminator-value="Play">
+			</subclass>
+		</subclass>
+	</class>
+</hibernate-mapping>

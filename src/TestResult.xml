@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Dev\MusicCompany\src\Tests.nunit" total="32" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2009-12-27" time="13:10:11">
+  <environment nunit-version="2.5.3.9345" clr-version="2.0.50727.4927" os-version="Microsoft Windows NT 6.1.7600.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.5.3\bin\net-2.0" machine-name="TREE" user="User" user-domain="tree" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite name="C:\Dev\MusicCompany\src\Tests.nunit" executed="True" success="True" time="1.295" asserts="0">
+    <results>
+      <test-suite name="C:\Dev\MusicCompany\src\Core\Tests\bin\MusicCompany.Core.Tests.dll" executed="True" success="True" time="0.250" asserts="0">
+        <results>
+          <test-suite name="MusicCompany" executed="True" success="True" time="0.250" asserts="0">
+            <results>
+              <test-suite name="Core" executed="True" success="True" time="0.250" asserts="0">
+                <results>
+                  <test-suite name="Tests" executed="True" success="True" time="0.250" asserts="0">
+                    <results>
+                      <test-suite name="ArtistTester" executed="True" success="True" time="0.172" asserts="0">
+                        <results>
+                          <test-case name="MusicCompany.Core.Tests.ArtistTester.ArtistCanBeManagedByOwner" executed="True" success="True" time="0.062" asserts="1" />
+                          <test-case name="MusicCompany.Core.Tests.ArtistTester.CanAddSingleWork" executed="True" success="True" time="0.047" asserts="3" />
+                          <test-case name="MusicCompany.Core.Tests.ArtistTester.CanAddThreeWorksWithSameName" executed="True" success="True" time="0.016" asserts="2" />
+                          <test-case name="MusicCompany.Core.Tests.ArtistTester.CanAddTwoWorks" executed="True" success="True" time="0.016" asserts="4" />
+                          <test-case name="MusicCompany.Core.Tests.ArtistTester.CanAddTwoWorksAndRemoveFirst" executed="True" success="True" time="0.000" asserts="3" />
+                          <test-case name="MusicCompany.Core.Tests.ArtistTester.CanAddTwoWorksAndRemoveSecond" executed="True" success="True" time="0.000" asserts="3" />
+                          <test-case name="MusicCompany.Core.Tests.ArtistTester.CanAddTwoWorksWithSameName" executed="True" success="True" time="0.016" asserts="6" />
+                          <test-case name="MusicCompany.Core.Tests.ArtistTester.CanCreateArtist" executed="True" success="True" time="0.000" asserts="4" />
+                          <test-case name="MusicCompany.Core.Tests.ArtistTester.CanRemoveSingleWork" executed="True" success="True" time="0.000" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="UniqueNameTester" executed="True" success="True" time="0.016" asserts="0">
+                        <results>
+                          <test-case name="MusicCompany.Core.Tests.UniqueNameTester.CanPreserveValue" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="MusicCompany.Core.Tests.UniqueNameTester.CanPreserveValue_InvalidPathChars" executed="True" success="True" time="0.016" asserts="1" />
+                          <test-case name="MusicCompany.Core.Tests.UniqueNameTester.RemovesSpaces" executed="True" success="True" time="0.000" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="WorkTester" executed="True" success="True" time="0.031" asserts="0">
+                        <results>
+                          <test-case name="MusicCompany.Core.Tests.WorkTester.CanAddAndRemoveTag" executed="True" success="True" time="0.016" asserts="4" />
+                          <test-case name="MusicCompany.Core.Tests.WorkTester.CanAddExistingTags" executed="True" success="True" time="0.000" asserts="4" />
+                          <test-case name="MusicCompany.Core.Tests.WorkTester.CanAddNewTags" executed="True" success="True" time="0.000" asserts="7" />
+                          <test-case name="MusicCompany.Core.Tests.WorkTester.CanAddUntrimmedTags" executed="True" success="True" time="0.000" asserts="9" />
+                          <test-case name="MusicCompany.Core.Tests.WorkTester.CanAppendTags" executed="True" success="True" time="0.000" asserts="5" />
+                          <test-case name="MusicCompany.Core.Tests.WorkTester.CanRemoveAllTags" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="MusicCompany.Core.Tests.WorkTester.CanRemoveTag" executed="True" success="True" time="0.000" asserts="3" />
+                          <test-case name="MusicCompany.Core.Tests.WorkTester.CanReplaceTags" executed="True" success="True" time="0.000" asserts="4" />
+                          <test-case name="MusicCompany.Core.Tests.WorkTester.CanTryToAddTheSameTags" executed="True" success="True" time="0.000" asserts="4" />
+                          <test-case name="MusicCompany.Core.Tests.WorkTester.CanUpdateTagsWithoutChange" executed="True" success="True" time="0.000" asserts="4" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite name="C:\Dev\MusicCompany\src\Core\Services\AudioConversion\Tests\bin\MusicCompany.Core.Services.AudioConversion.Tests.dll" executed="True" success="True" time="0.702" asserts="0">
+        <results>
+          <test-suite name="MusicCompany" executed="True" success="True" time="0.686" asserts="0">
+            <results>
+              <test-suite name="Core" executed="True" success="True" time="0.686" asserts="0">
+                <results>
+                  <test-suite name="Services" executed="True" success="True" time="0.686" asserts="0">
+                    <results>
+                      <test-suite name="AudioConversion" executed="True" success="True" time="0.686" asserts="0">
+                        <results>
+                          <test-suite name="Tests" executed="True" success="True" time="0.686" asserts="0">
+                            <results>
+                              <test-suite name="FlacBoxFlacStreamServiceTester" executed="True" success="True" time="0.624" asserts="0">
+                                <results>
+                                  <test-case name="MusicCompany.Core.Services.AudioConversion.Tests.FlacBoxFlacStreamServiceTester.FlacToWav_ByteArray" executed="True" success="True" time="0.156" asserts="2" />
+                                  <test-case name="MusicCompany.Core.Services.AudioConversion.Tests.FlacBoxFlacStreamServiceTester.FlacToWav_File" executed="True" success="True" time="0.031" asserts="3" />
+                                  <test-case name="MusicCompany.Core.Services.AudioConversion.Tests.FlacBoxFlacStreamServiceTester.WavToFlac_ByteArray" executed="True" success="True" time="0.250" asserts="2" />
+                                  <test-case name="MusicCompany.Core.Services.AudioConversion.Tests.FlacBoxFlacStreamServiceTester.WavToFlac_File" executed="True" success="True" time="0.187" asserts="3" />
+                                </results>
+                              </test-suite>
+                              <test-suite name="LameMP3StreamServiceTester" executed="True" success="True" time="0.047" asserts="0">
+                                <results>
+                                  <test-case name="MusicCompany.Core.Services.AudioConversion.Tests.LameMP3StreamServiceTester.CanDetermineDuration" executed="True" success="True" time="0.000" asserts="1" />
+                                  <test-case name="MusicCompany.Core.Services.AudioConversion.Tests.LameMP3StreamServiceTester.WavToMP3_File" executed="True" success="True" time="0.047" asserts="3" />
+                                </results>
+                              </test-suite>
+                              <test-suite name="WaveStreamServiceTester" executed="True" success="True" time="0.016" asserts="0">
+                                <results>
+                                  <test-case name="MusicCompany.Core.Services.AudioConversion.Tests.WaveStreamServiceTester.CanDetermineDuration" executed="True" success="True" time="0.016" asserts="1" />
+                                </results>
+                              </test-suite>
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite name="C:\Dev\MusicCompany\src\IntegrationTests\bin\MusicCompany.IntegrationTests.dll" executed="True" success="True" time="0.312" asserts="0">
+        <results>
+          <test-suite name="MusicCompany" executed="True" success="True" time="0.312" asserts="0">
+            <results>
+              <test-suite name="IntegrationTests" executed="True" success="True" time="0.312" asserts="0">
+                <results>
+                  <test-suite name="AudioCreationTests" executed="True" success="True" time="0.312" asserts="0">
+                    <results>
+                      <test-case name="MusicCompany.IntegrationTests.AudioCreationTests.CanCreateAudioFromFlacStream" executed="True" success="True" time="0.078" asserts="8" />
+                      <test-case name="MusicCompany.IntegrationTests.AudioCreationTests.CanCreateAudioFromMP3Stream" executed="True" success="True" time="0.000" asserts="5" />
+                      <test-case name="MusicCompany.IntegrationTests.AudioCreationTests.CanCreateAudioFromWavStream" executed="True" success="True" time="0.234" asserts="8" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

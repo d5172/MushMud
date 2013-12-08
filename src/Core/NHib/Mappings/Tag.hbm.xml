@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Core" namespace="MusicCompany.Core" schema="mc">
+	<class name="Tag" table="Tag" lazy="true" >
+		<id name="Id" type="Guid" >
+			<generator class="guid.comb" />
+		</id>
+		<property name="Lemma" type="String" unique-key="UC_Tag_Lemma">
+			<column name="Lemma" length="50" not-null="true" sql-type="VARCHAR(50)"/>
+		</property>
+	</class>
+</hibernate-mapping>

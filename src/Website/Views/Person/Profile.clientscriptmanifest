@@ -1,0 +1,8 @@
+﻿Views/Shared/Common.js
+Views/Shared/WorkList.js
+Views/Shared/PlayerManager.js
+Views/Person/Profile.js
+Views/Music/DownloadForm.js
+Views/Shared/PageLinks.js
+Views/Comments/CommentList.js
+Views/Comments/CommentForm.js

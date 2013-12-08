@@ -1,0 +1,11 @@
+﻿Views/Shared/Common.js
+Views/Shared/OptionsLink.js
+Views/Shared/UploadManager.js
+Views/CollectionWork/CollectionWorkForm.js
+Views/Works/CollectionWorkList.js
+Views/Shared/AudioWorkList.js
+Views/Shared/AudioWorkSingleList.js
+Views/AudioWork/AudioWorkForm.js
+Views/AudioWork/AddToCollectionForm.js
+Views/Music/DownloadForm.js
+Views/Works/Index.js

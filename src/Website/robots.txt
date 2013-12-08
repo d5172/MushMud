@@ -1,0 +1,5 @@
+﻿User-agent: *
+Disallow: /account/
+Disallow: /content/
+Disallow: /comments/
+Disallow: /scripts/

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Core" namespace="MusicCompany.Core" schema="mc">
+	<class name="BinaryFileInfo" table="BinaryFileInfo" lazy="true" >
+		<id name="Id" type="Guid" >
+			<generator class="guid.comb" />
+		</id>
+		<discriminator column="Class" type="String"/>
+		<property name="OriginalFileName" type="String">
+			<column name="OriginalFileName" length="1000" not-null="true" sql-type="VARCHAR(1000)"/>
+		</property>
+		<property name="FileFormat" type="MusicCompany.Core.NHib.CustomTypes.FileFormatEnumString, MusicCompany.Core.NHib">
+			<column name="FileFormat" length="50" not-null="true" sql-type="VARCHAR(50)"/>
+		</property>
+		<property name="ByteCount" type="Int64">
+			<column name="ByteCount" length="8" not-null="true" sql-type="BIGINT"/>
+		</property>
+		<many-to-one name="BinaryFileData" class="BinaryFileData" cascade="all-delete-orphan" lazy="proxy" foreign-key="FK_BinaryFileInfo_BinaryFileData">
+			<column name="BinaryFileDataId" length="16" not-null="true" sql-type="UNIQUEIDENTIFIER" />
+		</many-to-one>
+		<subclass name="AudioFileInfo" discriminator-value="AudioFileInfo">
+			<property name="Seconds" type="Int32">
+				<column name="Seconds" length="4" not-null="false" sql-type="INT"/>
+			</property>
+			<one-to-one name="AlternateFile" class="AudioFileInfo" property-ref="Parent"/>
+			<many-to-one name="Parent" class="AudioFileInfo" lazy="proxy" unique="true" foreign-key="FK_BinaryFileInfo_Parent">
+				<column name="ParentId" length="16" not-null="false" sql-type="UNIQUEIDENTIFIER" />
+			</many-to-one>
+		</subclass>
+		<subclass name="ImageFileInfo" discriminator-value="ImageFileInfo">
+			<property name="HorizontalResolution" type="Int32">
+				<column name="HorizontalResolution" length="4" not-null="false" sql-type="INT"/>
+			</property>
+			<property name="VerticalResolution" type="Int32">
+				<column name="VerticalResolution" length="4" not-null="false" sql-type="INT"/>
+			</property>
+			<property name="ColorMode" type="String">
+				<column name="ColorMode" length="50" not-null="false" sql-type="VARCHAR(50)"/>
+			</property>
+		</subclass>
+	</class>
+</hibernate-mapping>

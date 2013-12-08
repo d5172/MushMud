@@ -1,0 +1,2 @@
+NAnt.exe
+pause

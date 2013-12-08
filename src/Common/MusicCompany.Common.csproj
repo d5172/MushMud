@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95950F5E-D563-47F5-9F62-F0B1BE4C0512}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MusicCompany.Common</RootNamespace>
+    <AssemblyName>MusicCompany.Common</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Agatha.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6f21cf452a4ffa13, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Agatha\Agatha.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.1.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\MvcMembership\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\CreateCommentCommand.cs" />
+    <Compile Include="Commands\AddSingleToCollectionCommand.cs" />
+    <Compile Include="Commands\ChangeArtistNameCommand.cs" />
+    <Compile Include="Commands\CollectionCommandBase.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\CommandContext.cs" />
+    <Compile Include="Commands\DownloadCollectionZipCommand.cs" />
+    <Compile Include="Commands\DeleteWorkCommand.cs" />
+    <Compile Include="Commands\DownloadCollectionTorrentCommand.cs" />
+    <Compile Include="Commands\DownloadTrackCommand.cs" />
+    <Compile Include="Commands\DownloadAudioSingleCommand.cs" />
+    <Compile Include="Commands\PlayAudioSingleCommand.cs" />
+    <Compile Include="Commands\CreateCollectionCommand.cs" />
+    <Compile Include="Commands\DeleteCollectionCommand.cs" />
+    <Compile Include="Commands\FileResponse.cs" />
+    <Compile Include="Commands\PlayTrackCommand.cs" />
+    <Compile Include="Commands\RemoveCollectionImageCommand.cs" />
+    <Compile Include="Commands\RemoveWorkFromCollectionCommand.cs" />
+    <Compile Include="Commands\SortChildWorksCommand.cs" />
+    <Compile Include="Commands\UpdateAudioSingleCommand.cs" />
+    <Compile Include="Commands\CreateArtistCommand.cs" />
+    <Compile Include="Commands\CreateAudioSingleCommand.cs" />
+    <Compile Include="Commands\CreatePersonCommand.cs" />
+    <Compile Include="Commands\CreateTrackCommand.cs" />
+    <Compile Include="Commands\DeleteArtistCommand.cs" />
+    <Compile Include="Commands\UpdateArtistProfileCommand.cs" />
+    <Compile Include="Commands\UpdateArtistProfilePictureCommand.cs" />
+    <Compile Include="Commands\UpdateCollectionCommand.cs" />
+    <Compile Include="Commands\UpdateCollectionImageCommand.cs" />
+    <Compile Include="Commands\UpdateTrackCommand.cs" />
+    <Compile Include="Queries\ArtistNameAvailableQuery.cs" />
+    <Compile Include="Queries\GetPersonDetailQuery.cs" />
+    <Compile Include="Queries\ListArtistImagesQuery.cs" />
+    <Compile Include="Queries\GetArtistWorkDetailQuery.cs" />
+    <Compile Include="Queries\GetCollectionDetailQuery.cs" />
+    <Compile Include="Queries\ListCollectionImagesQuery.cs" />
+    <Compile Include="Queries\ListCollectionSummaryByArtistQuery.cs" />
+    <Compile Include="Queries\ListCommentsQuery.cs" />
+    <Compile Include="Queries\ListDomainEventsForUserQuery.cs" />
+    <Compile Include="Queries\ListLicenseDetailQuery.cs" />
+    <Compile Include="Queries\GetAudioSingleDetailQuery.cs" />
+    <Compile Include="Queries\GetTrackDetailQuery.cs" />
+    <Compile Include="Queries\ListArtistsManagedByPersonQuery.cs" />
+    <Compile Include="Queries\ListAudioSinglesQuery.cs" />
+    <Compile Include="Queries\ListLicenseSummariesQuery.cs" />
+    <Compile Include="Queries\ListTopLevelWorksByPersonQuery.cs" />
+    <Compile Include="Queries\ListTracksQuery.cs" />
+    <Compile Include="Queries\ListMostPopularWorksQuery.cs" />
+    <Compile Include="Queries\ListNewReleasesQuery.cs" />
+    <Compile Include="Queries\GetArtistDetailQuery.cs" />
+    <Compile Include="Queries\GetImageDetailQuery.cs" />
+    <Compile Include="Queries\ListArtistsQuery.cs" />
+    <Compile Include="Queries\ListTopLevelWorksQuery.cs" />
+    <Compile Include="Queries\ListTopLevelWorksByArtistQuery.cs" />
+    <Compile Include="Queries\PagingSpecification.cs" />
+    <Compile Include="Queries\QueryBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\SuggestSearchTermsQuery.cs" />
+    <Compile Include="Queries\SuggestTagsQuery.cs" />
+    <Compile Include="Queries\WorkSearchQuery.cs" />
+    <Compile Include="ViewModel\ArtistDetailView.cs" />
+    <Compile Include="ViewModel\ArtistPersonSummaryView.cs" />
+    <Compile Include="ViewModel\ArtistSummaryView.cs" />
+    <Compile Include="ViewModel\AudioSingleSummaryView.cs" />
+    <Compile Include="ViewModel\CollectionSummaryView.cs" />
+    <Compile Include="ViewModel\AudioTrackSummaryView.cs" />
+    <Compile Include="ViewModel\ArtistWorkDetailView.cs" />
+    <Compile Include="ViewModel\CommentView.cs" />
+    <Compile Include="ViewModel\DomainEventView.cs" />
+    <Compile Include="ViewModel\ImageDetailView.cs" />
+    <Compile Include="ViewModel\ImageSummaryView.cs" />
+    <Compile Include="ViewModel\LicenseDetailView.cs" />
+    <Compile Include="ViewModel\LicenseSummaryView.cs" />
+    <Compile Include="ViewModel\PersonDetailView.cs" />
+    <Compile Include="ViewModel\TagView.cs" />
+    <Compile Include="ViewModel\TopLevelWorkSummaryView.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

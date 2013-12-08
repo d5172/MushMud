@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace MusicCompany.Common.Commands
+{
+	public abstract class CollectionCommandBase : CommandRequestBase
+	{
+		public string Title
+		{
+			get;
+			set;
+		}
+
+		public string Description
+		{
+			get;
+			set;
+		}
+
+		public string LicenseIdentifier
+		{
+			get;
+			set;
+		}
+
+		public string Tags
+		{
+			get;
+			set;
+		}
+
+		public DateTime ReleaseDate
+		{
+			get;
+			set;
+		}
+
+
+	}
+}

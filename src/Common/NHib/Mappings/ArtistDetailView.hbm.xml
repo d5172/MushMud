@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Common" namespace="MusicCompany.Common.ViewModel" schema="mc">
+	<class name="ArtistDetailView" table="ArtistDetailView" lazy="false" mutable="false" >
+		<id name="Identifier" type="String">
+			<generator class="assigned"/>
+		</id>
+		<property name="Name" type="String" />
+		<property name="Bio" type="String" />
+		<property name="ProfileImageId" type="Guid" />
+		<bag name="TopLevelWorks" fetch="join" where="IsReleased = 1">
+			<key column="ArtistIdentifier" />
+			<one-to-many class="TopLevelWorkSummaryView" />
+		</bag>
+	</class>
+</hibernate-mapping>

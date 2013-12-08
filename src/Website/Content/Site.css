@@ -1,0 +1,394 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+
+/* Element selectors  
+----------------------------------------------------------*/
+body
+{
+	font-size: 0.75em;
+	font-family: 'Trebuchet MS','Lucida Sans Unicode','Lucida Grande', 'Lucida', Arial, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #696969;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-size: 1.5em;
+	color: #5c87b2;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0 0 0 0;
+}
+
+h1
+{
+	font-size: 2em;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+h2
+{
+	padding: 0 0 14px 0;
+}
+h3
+{
+	font-size: 1.2em;
+}
+h4
+{
+	font-size: 1.1em;
+}
+h5, h6
+{
+	font-size: 1em;
+}
+
+table
+{
+	border-collapse: collapse;
+}
+
+table td
+{
+	padding: 5px;
+	border: solid 1px #fff;
+}
+
+table th
+{
+	padding: 6px 5px;
+	text-align: left;
+	background-color: #e8eef4;
+	border: solid 0px #e8eef4;
+}
+
+form div.ui-state-error
+{
+	display: inline;
+	padding: .5em .5em .5em .5em;
+	margin-left: 1em;
+	font-weight: bold;
+}
+
+form li div label, form li span label
+{
+	margin: 0;
+	padding-top: 6px;
+	clear: both;
+	font-size: 85%;
+	line-height: 100%;
+	display: block;
+}
+
+form label.desc
+{
+	font-size: 95%;
+	font-weight: bold;
+	line-height: 150%;
+	margin: 0;
+	padding: 0 0 3px 0;
+	border: none;
+	display: block;
+}
+
+form ul
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+form li
+{
+	display: block;
+	margin: 0;
+	padding: 6px 5px 9px 9px;
+	clear: both;
+}
+
+
+/* Class, Attribute and Psuedo selectors   
+----------------------------------------------------------*/
+.ui-tabs .ui-tabs-nav li { float: right; } 
+		.ui-tabs .ui-tabs-nav li a { float: right; }
+
+
+.collectionTitle{font-size:1.5em; font-weight:bold}
+
+.hr
+{
+	margin: 3px auto 3px auto;
+	line-height: 1px;
+	font-size: 1px;
+	border-bottom: 1px #CCCCCC solid;
+}
+.hr hr
+{
+	display: none;
+}
+
+input.text, input.search, input.file, textarea.textarea, select.select
+{
+	width: 250px;
+	font-family: Tahoma, Arial, sans-serif;
+	font-size: 100%;
+	color: #333;
+	margin: 0;
+	padding: 2px 0;
+}
+
+textarea.textarea
+{
+	width: 280px;
+}
+
+input.text, input.search, textarea.textarea, input.file
+{
+	border-top: 1px solid #c3c3c3;
+	border-left: 1px solid #c3c3c3;
+	border-right: 1px solid #c3c3c3;
+	border-bottom: 1px solid #c3c3c3;
+}
+
+select.select
+{
+	padding: 1px 0 0 0;
+}
+
+input.ui-state-error
+{
+	background-color:#FFF;
+}
+
+select.ui-state-error
+{
+	background-color:#FFF;
+}
+
+form li.leftHalf
+{
+	width: 46% !important;
+}
+li.leftHalf
+{
+	clear: left !important;
+	float: left;
+}
+li.rightHalf
+{
+	clear: none !important;
+	float: right;
+}
+
+.page
+{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+a:link
+{
+	color: #034af3;
+	text-decoration: none;
+}
+
+a:visited
+{
+	color: #505abc;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #1d60ff;
+	text-decoration: none;
+}
+
+/* this rule styles <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+	margin-top: 0;
+}
+.nowrap
+{
+	white-space:nowrap;
+}
+
+/* SWFUpload Object Styles */
+.swfupload
+{
+	vertical-align: top;
+}
+
+.fg-button
+{
+	outline: 0;
+	margin: 0 3px 0 0;
+	padding: .3em .6em;
+	text-decoration: none !important;
+	font-weight: normal !important;
+	cursor: pointer;
+	position: relative;
+	text-align: center;
+}
+
+.fg-button .ui-icon
+{
+	position: absolute;
+	top: 50%;
+	margin-top: -8px;
+	left: 50%;
+	margin-left: -8px;
+}
+a.fg-button
+{
+	float: left;
+}
+
+.fg-button-icon-left
+{
+	padding-left: 1.8em;
+}
+.fg-button-icon-left .ui-icon
+{
+	right: auto;
+	left: .2em;
+	margin-left: 0;
+}
+.fg-button-icon-solo
+{
+	display: block;
+	width: 8px;
+	height: 8px;
+	text-indent: -9999px;
+}
+
+.mm-iconLink .ui-icon
+{
+	 float:left; 
+	 padding-right:3px;
+}
+
+#pager
+{
+	text-align:center;
+}
+
+#pager .pageLink
+{
+	padding: .2em .8em .2em .8em;
+	margin:0 .4em;
+}
+
+/* ID selectors 
+----------------------------------------------------------*/
+#header
+{
+	position: relative;
+	margin-bottom: 0;
+	color: #000;
+	padding: 0;
+}
+
+#header h1
+{
+	font-weight: bold;
+	padding: 5px 0;
+	margin: 0;
+	border: none;
+	line-height: 2em;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 32px !important;
+}
+
+#main
+{
+	padding: 2em 2em 2em 2em;
+	background-color: #fff;
+	/*margin-bottom: 30px;*/
+	_height: 1px; /* only IE6 applies CSS properties starting with an underscrore */
+}
+
+#footer
+{
+	color: #999;
+	padding: 10px 0;
+	text-align: left;
+	line-height: normal;
+	margin: 0;
+	font-size: .9em;
+}
+
+#menucontainer
+{
+	margin-top: 2em;
+}
+
+div#title
+{
+	display: block;
+	float: left;
+	text-align: left;
+}
+
+#logindisplay
+{
+	font-size: 1.1em;
+	display: block;
+	text-align: right;
+	margin: 10px;
+	color: #696969;
+}
+
+#logindisplay a:link
+{
+	text-decoration: underline;
+}
+
+#logindisplay a:visited
+{
+	text-decoration: underline;
+}
+
+#logindisplay a:hover
+{
+	text-decoration: none;
+}
+
+#downloadWindow
+{
+	font-family: 'Trebuchet MS','Lucida Sans Unicode','Lucida Grande', 'Lucida', Arial, Verdana, sans-serif;
+	color: #696969;
+}
+#userMessage
+{
+	top: 0;
+	left: 0;
+	width: 100%;
+	position: fixed;
+	padding: .5em;
+	margin: 0;
+	/*border: 1px solid;*/
+	cursor:pointer;
+	z-index:999;
+}
+#userMessage .Error
+{
+	color: #ff0000;
+}
+#userMessage .Warning
+{
+	color: Orange;
+}
+#userMessage .Info
+{
+	color:Green;
+}
+

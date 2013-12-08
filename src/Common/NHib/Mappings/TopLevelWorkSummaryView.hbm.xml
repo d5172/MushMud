@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Common" namespace="MusicCompany.Common.ViewModel" schema="mc">
+	<class name="TopLevelWorkSummaryView" table="TopLevelWorkSummaryView" lazy="false" mutable="false" >
+		<id name="Id" type="Guid">
+			<generator class="assigned"/>
+		</id>
+		<discriminator column="Class" type="String"/>
+		<property name="Identifier" type="String"/>
+		<property name="Title" type="String" />
+		<property name="ArtistIdentifier" type="String" />
+		<property name="ArtistName" type="String" />
+		<property name="ArtistImageId" type="Guid"/>
+		<property name="Description" type="String" />
+		<property name="ReleaseDate" type="DateTime" />
+		<component name="License" class="LicenseDetailView">
+			<property name="Name" column="LicenseName" type="String" />
+			<property name="Identifier" column="LicenseIdentifier" type="String" />
+			<property name="Url" column="LicenseUrl" type="String" />
+			<property name="ImageUrl" column="LicenseImageUrl" type="String" />
+		</component>
+		<property name="Tags" type="String" />
+		<property name="Seconds" type="Int32" />
+		<property name="DownloadCount" type="Int32" />
+		<property name="PlayCount" type="Int32" />
+		<property name="Rank" type="Int32" />
+		<property name="BinaryFileId" type="Guid"/>
+		<property name="FileFormat" type="String"/>
+		<property name="IsReleased" type="Boolean"/>
+		
+		<subclass name="CollectionSummaryView" discriminator-value="CollectionWork" lazy="false" >
+			<property name="TrackCount" type="Int32"/>
+		</subclass>
+		
+		<subclass name="AudioSingleSummaryView" discriminator-value="AudioWork" lazy="false">
+			<property name="AlternateFileFormat" type="String"/>
+		</subclass>
+		
+	</class>
+</hibernate-mapping>

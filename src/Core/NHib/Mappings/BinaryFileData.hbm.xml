@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Core" namespace="MusicCompany.Core" schema="mc">
+	<class name="BinaryFileData" table="BinaryFileData" lazy="true" >
+		<id name="Id" type="Guid" >
+			<generator class="guid.comb" />
+		</id>
+		<property name="Data" type="Byte[]">
+			<column name="Data" length="16" not-null="true" sql-type="Image"/>
+		</property>
+	</class>
+</hibernate-mapping>

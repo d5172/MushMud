@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Core" namespace="MusicCompany.Core" schema="mc">
+	<class name="Comment" table="Comment" lazy="true" >
+		<id name="Id" type="Guid" >
+			<generator class="guid.comb" />
+		</id>
+		<many-to-one name="Work" class="Work" lazy="proxy" foreign-key="FK_Comment_Work">
+			<column name="WorkId" length="16" not-null="true" sql-type="UNIQUEIDENTIFIER" />
+		</many-to-one>
+		<many-to-one name="Person" class="Person" lazy="proxy" foreign-key="FK_Comment_Person">
+			<column name="PersonId" length="16" not-null="true" sql-type="UNIQUEIDENTIFIER" />
+		</many-to-one>
+		<property name="CommentText" type="String">
+			<column name="CommentText" length="1000" not-null="true" sql-type="VARCHAR(1000)"/>
+		</property>
+		<property name="DateEntered" type="DateTime">
+			<column name="DateEntered" length="8" not-null="true" sql-type="DATETIME"/>
+		</property>
+	</class>
+</hibernate-mapping>

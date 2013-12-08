@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Core" namespace="MusicCompany.Core" schema="mc">
+	<class name="ArtistPerson" table="ArtistPerson" lazy="true" >
+		<id name="Id" type="Guid" >
+			<generator class="guid.comb" />
+		</id>
+		<version name="Version" type="Timestamp" />
+		<many-to-one name="Artist" class="Artist" lazy="proxy" foreign-key="FK_ArtistPerson_Artist">
+			<column name="ArtistId" length="16" not-null="true" sql-type="UNIQUEIDENTIFIER" unique-key="Artist_Person"/>
+		</many-to-one>
+		<many-to-one name="Person" class="Person" lazy="proxy" foreign-key="FK_ArtistPerson_Person">
+			<column name="PersonId" length="16" not-null="true" sql-type="UNIQUEIDENTIFIER" unique-key="Artist_Person"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

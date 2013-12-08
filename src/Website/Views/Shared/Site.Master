@@ -1,0 +1,102 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<%@ Import Namespace="MusicCompany.Website.Models" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<title>
+		<asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+	</title>
+	<asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+	<%=Html.JQueryUITheme() %>
+	<%=Html.Stylesheet("Site.css") %>
+	<%=Html.Stylesheet("jquery.autocomplete.css") %>
+	<asp:ContentPlaceHolder ID="AdditionalStylesheets" runat="server" />
+</head>
+<body>
+	<div id="jquery_jplayer">
+	</div>
+	<div id="userMessage" class="ui-helper-hidden">
+	</div>
+	<noscript>
+		You'll need javascript enabled.
+	</noscript>
+	<div class="page">
+		<div id="header">
+			<div id="title">
+				<a href="/" title="Home">
+					<img src="/content/mushmud-logo.gif" style="margin-left: 5px; width: 150px; height: 60px; vertical-align: text-bottom; border: none" alt="logo" />
+				</a>A Music Sharing Community
+			</div>
+			<div id="logindisplay">
+				<% Html.RenderPartial("LogOnUserControl"); %>
+			</div>
+			<div style="margin-top: 4em; width: 100%">
+				<div class="ui-tabs">
+					<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+						<li class="ui-state-default ui-corner-top navTab">
+							<%= Html.ActionLink("Your Music", "Index", "YourMusic")%></li>
+						<li class="ui-state-default ui-corner-top navTab">
+							<%= Html.ActionLink("Charts", "Index", "Charts")%></li>
+						<li class="ui-state-default ui-corner-top navTab">
+							<%= Html.ActionLink("Artists", "Index", "Artist")%></li>
+						<li class="ui-state-default ui-corner-top navTab">
+							<%= Html.ActionLink("Music", "Index", "Music")%></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="main">
+			<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+			<div id="footer">
+				<div class="hr" style="border-bottom: 1px #5c87b2 solid;">
+					<hr />
+				</div>
+				&copy;&nbsp;<%=DateTime.Now.Year.ToString() %>&nbsp;MushMud
+				<div>
+					<%= Html.ActionLink("Home", "Index", "Home")%>&nbsp;|
+					<%= Html.ActionLink("About", "Index", "About")%>&nbsp;|
+					<%= Html.ActionLink("Terms of Service", "TermsOfService", "About")%>&nbsp;|
+					<%= Html.ActionLink("Music", "Index", "Music")%>&nbsp;|
+					<%= Html.ActionLink("Artists", "Index", "Artist")%>&nbsp;|
+					<%= Html.ActionLink("Charts", "Index", "Charts")%>&nbsp;|
+					<%= Html.ActionLink("Your Music", "Index", "YourMusic")%>&nbsp;|
+					<%= Html.ActionLink("Account Settings", "Index", "Account")%>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="modalWindow" title="MushMud">
+	</div>
+	<%=Html.LibraryScript("jquery") %>
+	<%=Html.Script("jquery.autocomplete.min.js") %>
+	<asp:ContentPlaceHolder ID="AdditionalScripts" runat="server" />
+	<%=Html.InitialUserMessage()%>
+
+	<script type="text/javascript">
+		var uservoiceOptions = {
+			/* required */
+			key: 'mushmud',
+			host: 'mushmud.uservoice.com',
+			forum: '40877',
+			showTab: true,
+			/* optional */
+			alignment: 'left',
+			background_color: '#cccc66',
+			text_color: 'black',
+			hover_color: '#e8eef4',
+			lang: 'en'
+		};
+
+		function _loadUserVoice() {
+			var s = document.createElement('script');
+			s.setAttribute('type', 'text/javascript');
+			s.setAttribute('src', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
+			document.getElementsByTagName('head')[0].appendChild(s);
+		}
+		_loadSuper = window.onload;
+		window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+	</script>
+
+</body>
+</html>

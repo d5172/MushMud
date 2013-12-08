@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<project name="Release Build" default="package" basedir=".">
+	<description>
+		This packages up the files that need to be deployed to the server
+	</description>
+
+	<property name="tempBuildPath" value="..\..\temp_build" />
+	<property name="targetFilePath" value="..\..\Release.zip"/>
+	
+	<target name="package">
+		<delete file="${targetFilePath}" />
+		<delete dir="${tempBuildPath}" />
+		
+		<copy todir="${tempBuildPath}">
+			<fileset basedir=".">
+				<include name="**/*"/>
+				<exclude name="**.cs"/>
+				<exclude name="**.csproj"/>
+				<exclude name="**.csproj.user"/>
+				<exclude name="*.config"/>
+				<exclude name="**.bat"/>
+				<exclude name="**.build"/>
+				<exclude name="**.psd"/>
+				<exclude name="**.xcf"/>
+				<exclude name="Views/**.js"/>
+				<exclude name="Views/**.clientscriptmanifest"/>
+				<exclude name="Website.Publish.xml"/>
+				<exclude name="ImageFileCache/**"/>
+				<exclude name="AudioFileCache/**"/>
+				<exclude name="TorrentFileCache/**"/>
+				<exclude name="bin/*.xml"/>
+				<exclude name="obj/**.*"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${tempBuildPath}">
+			<fileset basedir=".">
+				<include name="ImageFileCache/placeholder.txt"/>
+				<include name="AudioFileCache/placeholder.txt"/>
+				<include name="TorrentFileCache/placeholder.txt"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${tempBuildPath}">
+			<fileset basedir=".">
+				<include name="Production.config"/>
+				<include name="Acceptance.config"/>
+			</fileset>
+		</copy>
+
+		<zip zipfile="${targetFilePath}">
+			<fileset basedir="${tempBuildPath}">
+				<include name="**/*"/>
+			</fileset>
+		</zip>
+
+		<delete dir="${tempBuildPath}"/>
+
+	</target>
+	
+</project>

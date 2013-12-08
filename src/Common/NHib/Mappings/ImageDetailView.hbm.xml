@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="MusicCompany.Common" namespace="MusicCompany.Common.ViewModel" schema="mc">
+	<class name="ImageDetailView" table="ImageDetailView" lazy="false" mutable="false" >
+		<id name="Id" type="Guid">
+			<generator class="assigned"/>
+		</id>
+		<property name="FileFormat" type="String" />
+		<property name="Width" type="Int32" />
+		<property name="OriginalFileName" type="String" />
+		<property name="Data" type="Byte[]" />
+	</class>
+</hibernate-mapping>

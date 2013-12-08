@@ -1,0 +1,9 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="Core\Tests\bin\MusicCompany.Core.Tests.dll" />
+    <assembly path="Core\Services\AudioConversion\Tests\bin\MusicCompany.Core.Services.AudioConversion.Tests.dll" />
+    <assembly path="IntegrationTests\bin\MusicCompany.IntegrationTests.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>

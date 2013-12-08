@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="MusicCompany.Core" assembly="MusicCompany.Core">
+	<class name="WorkSet" table="WorkSet" lazy="true" >
+		<id name="Id" type="Int32" >
+			<column name="Id" length="4" not-null="true" sql-type="INT"/>
+			<generator class="identity" />
+		</id>
+		<version name="Version" type="Timestamp" />
+		<property name="Title" type="String">
+			<column name="Title" length="500" not-null="true" sql-type="VARCHAR(500)"/>
+		</property>
+		<property name="Summary" type="String">
+			<column name="Summary" length="1000" not-null="true" sql-type="VARCHAR(1000)"/>
+		</property>
+		<property name="Description" type="String">
+			<column name="Description" length="16" not-null="true" sql-type="VARCHAR(MAX)"/>
+		</property>
+		<many-to-one name="Artist" class="Artist" lazy="proxy" foreign-key="FK_Work_Artist">
+			<column name="ArtistId" length="4" not-null="true" sql-type="INT" />
+		</many-to-one>
+		<many-to-one name="MainImage" class="BinaryFileInfo" lazy="proxy" foreign-key="FK_WorkSet_MainImageBinaryFileInfo">
+			<column name="MainImageBinaryFileInfoId" length="4" not-null="false" sql-type="INT" />
+		</many-to-one>
+		<many-to-one name="PreviewImage" class="BinaryFileInfo" lazy="proxy" foreign-key="FK_WorkSet_PreviewImageBinaryFileInfo">
+			<column name="PreviewImageBinaryFileInfoId" length="4" not-null="false" sql-type="INT" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

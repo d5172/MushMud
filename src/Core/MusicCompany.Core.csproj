@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2E4344AE-62C5-4A09-9828-A9397D264147}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MusicCompany.Core</RootNamespace>
+    <AssemblyName>MusicCompany.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.1.0.1001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\NHibernate.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.1.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\MvcMembership\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Artist.cs" />
+    <Compile Include="ArtistPerson.cs" />
+    <Compile Include="AudioFileInfo.cs" />
+    <Compile Include="AudioWork.cs" />
+    <Compile Include="AudioWorkDownloadEvent.cs" />
+    <Compile Include="BinaryFileData.cs" />
+    <Compile Include="BinaryFileInfo.cs" />
+    <Compile Include="CollectionWork.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="CommentEvent.cs" />
+    <Compile Include="PlayEvent.cs" />
+    <Compile Include="DomainEvent.cs" />
+    <Compile Include="DomainLogicException.cs" />
+    <Compile Include="DownloadEvent.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Factories\AudioFileInfoFactory.cs" />
+    <Compile Include="Factories\ImageFileInfoFactory.cs" />
+    <Compile Include="Factories\StreamExtensions.cs" />
+    <Compile Include="FileFormat.cs" />
+    <Compile Include="HistoricWorkLicense.cs" />
+    <Compile Include="ImageFileInfo.cs" />
+    <Compile Include="ImageWork.cs" />
+    <Compile Include="License.cs" />
+    <Compile Include="Services\IFlacStreamService.cs" />
+    <Compile Include="Services\IImageProcessingService.cs" />
+    <Compile Include="Services\ImageProcessing\ImageProcessingService.cs" />
+    <Compile Include="Services\ITorrentFileService.cs" />
+    <Compile Include="Services\IWaveStreamService.cs" />
+    <Compile Include="Services\IMP3StreamService.cs" />
+    <Compile Include="Services\IZipFileService.cs" />
+    <Compile Include="Tag.cs" />
+    <Compile Include="Services\TagService.cs" />
+    <Compile Include="UniqueName.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VersionedEntity.cs" />
+    <Compile Include="Work.cs" />
+    <Compile Include="WorkEvent.cs" />
+    <Compile Include="DomainEventType.cs" />
+    <Compile Include="WorkType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DomainModel.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\MusicCompany.Infrastructure.csproj">
+      <Project>{C695F0BA-7E93-4F53-B2EB-1AEF79DEE692}</Project>
+      <Name>MusicCompany.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
