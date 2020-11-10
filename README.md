@@ -17,22 +17,22 @@ This site was live as "mushmud.com" from 2009 to 2020.  The site is no longer in
 
 ### Here is what it looked like:
 
-Home page:
+#### Home page:
 ![alt text](doc/home-page.png "Home Page Screenshot")
 
-List of Music:
+#### List of Music:
 ![alt text](doc/list.png "Music List Screenshot")
 
-Home page:
+#### Home page:
 ![alt text](doc/home-page.png "Home Page Screenshot")
 
-Player:
+#### Player:
 ![alt text](doc/player.png "Player Screenshot")
 
-Artist Profile:
+#### Artist Profile:
 ![alt text](doc/artist-profile.png "Artist Profile Screenshot")
 
-Charts:
+#### Charts:
 ![alt text](doc/charts.png "Charts Page Screenshot")
 
 
